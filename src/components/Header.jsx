@@ -5,9 +5,11 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  function pathMatchRoute(route) {
+  function generateClassStyle(route) {
     if (route === location.pathname) {
-      return true;
+      return "cursor-pointer py-3 text-sm font-semibold  border-b-[3px] text-black border-b-red-500";
+    } else {
+      return "cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent";
     }
   }
 
@@ -27,11 +29,7 @@ export default function Header() {
         <div>
           <ul className="flex space-x-10">
             <li
-              className={`${
-                pathMatchRoute("/")
-                  ? "cursor-pointer py-3 text-sm font-semibold  border-b-[3px] text-black border-b-red-500"
-                  : "cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent"
-              } `}
+              className={generateClassStyle("/")}
               onClick={() => {
                 navigate("/");
               }}
@@ -39,11 +37,7 @@ export default function Header() {
               Home
             </li>
             <li
-              className={`${
-                pathMatchRoute("/offers")
-                  ? "cursor-pointer py-3 text-sm font-semibold  border-b-[3px] text-black border-b-red-500"
-                  : "cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent"
-              }`}
+              className={generateClassStyle("/offers")}
               onClick={() => {
                 navigate("/offers");
               }}
@@ -51,11 +45,7 @@ export default function Header() {
               Offers
             </li>
             <li
-              className={`${
-                pathMatchRoute("/signIn")
-                  ? "cursor-pointer py-3 text-sm font-semibold  border-b-[3px] text-black border-b-red-500"
-                  : "cursor-pointer py-3 text-sm font-semibold text-gray-400 border-b-[3px] border-b-transparent"
-              }`}
+              className={generateClassStyle("/signIn")}
               onClick={() => {
                 navigate("/signIn");
               }}
