@@ -8,6 +8,7 @@ import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 
 export default function OAuth() {
   const navigate = useNavigate();
+
   async function onGoogleClick() {
     try {
       const auth = getAuth();
@@ -35,6 +36,7 @@ export default function OAuth() {
       console.log(error);
     }
   }
+
   return (
     <button
       type="button"
