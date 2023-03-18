@@ -1,0 +1,69 @@
+<script>
+  setTimeout(function () {
+    document.querySelectorAll('a[role="button"]').forEach(function (item) {
+      item.addEventListener("click", function () {
+        if (
+          item.textContent === "이벤트 자세히 보기" &&
+          item.getAttribute("href") ===
+            "https://blog.naver.com/nhncommerce/223045123657"
+        ) {
+          gtag("event", "purchase", {
+            transaction_id: document.querySelectorAll(
+              ".css-45ngvz .css-1qggkls > p"
+            )[0].textContent,
+            value: 1,
+            currency: "KRW",
+            items: [
+              {
+                item_id: document.querySelectorAll(
+                  ".css-45ngvz .css-1qggkls > p"
+                )[0].textContent,
+                item_name: document.querySelectorAll(
+                  ".css-45ngvz .css-1qggkls > p"
+                )[0].textContent,
+                currency: "KRW",
+                price: 1,
+                quantity: 1,
+              },
+            ],
+          });
+        } else {
+          gtag("event", "purchase", {
+            transaction_id: document.querySelectorAll(
+              ".css-45ngvz .css-1qggkls > p"
+            )[3].textContent,
+            value: 1,
+            currency: "KRW",
+            items: [
+              {
+                item_id: document.querySelectorAll(
+                  ".css-45ngvz .css-1qggkls > p"
+                )[3].textContent,
+                item_name: document.querySelectorAll(
+                  ".css-45ngvz .css-1qggkls > p"
+                )[3].textContent,
+                currency: "KRW",
+                price: 1,
+                quantity: 1,
+              },
+            ],
+          });
+        }
+      });
+    });
+  }, 1500);
+</script>
+
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-NLWKDP5");
+</script>
+<!-- End Google Tag Manager -->
